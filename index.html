@@ -892,7 +892,7 @@ summary(MaxTempYield)</code></pre>
 <pre class="r"><code>#Creating visuals&#39;
 grid.arrange(
 top = &quot;Individual factors regressed against yield for all counties&quot;,
-layout_matrix = rbind(c(1, 2, 3),c(4, 4)),
+layout_matrix = rbind(c(1, 2, 3),c(4, 4, 4)),
 ggplot(MaxTempYield) +
   geom_point(mapping = aes(x = yield, y = tempsqfit), alpha = 0.2) +
   geom_line(mapping = aes(x = yield, y = yield), linetype = &quot;solid&quot;, size=0.5) +

@@ -3,6 +3,13 @@ title: "Weather and Corn Yield Regressions"
 author: "Alex Siggers"
 date: "03/04/2022"
 output: html_document
+knit: (function(input, ...) {
+    rmarkdown::render(
+      input,
+      output_file = 'index',
+      output_dir='./'
+    )
+  })
 ---
 
 ```{r setup, include=FALSE}
@@ -256,26 +263,26 @@ layout_matrix = rbind(c(1, 2, 3),c(4, 4, 4)),
 ggplot(MaxTempYield) +
   geom_point(mapping = aes(x = yield, y = tempsqfit), alpha = 0.2) +
   geom_line(mapping = aes(x = yield, y = yield), linetype = "solid", size=0.5) +
-  theme_bw() +
-  labs(x = "Yield (Actual)", y = "Yield (Fitted)", title= "Quad Temp",)
+  labs(x = "Yield (Actual)", y = "Yield (Fitted)", title= "Quad Temp",) +
+  theme_gray()
 ,
 ggplot(MaxTempYield) +
   geom_point(mapping = aes(x = yield, y = yearfit), alpha = 0.2) + 
   geom_line(mapping = aes(x = yield, y = yield), linetype = "solid", size=0.5) +
-  theme_bw() +
-  labs(x = "Yield (Actual)", y = "Yield (Fitted)", title= "Year")
+  labs(x = "Yield (Actual)", y = "Yield (Fitted)", title= "Year") +
+  theme_gray()
 ,
 ggplot(MaxTempYield) +
   geom_point(mapping = aes(x = yield, y = countyfit), alpha = 0.2) + 
   geom_line(mapping = aes(x = yield, y = yield), linetype = "solid", size=0.5) +
-  theme_bw() +
-  labs(x = "Yield (Actual)", y = "Yield (Fitted)", title= "County Model")
+  labs(x = "Yield (Actual)", y = "Yield (Fitted)", title= "County Model") +
+  theme_gray()
 ,
 ggplot(MaxTempYield) +
   geom_point(mapping = aes(x = yield, y = allfit), alpha = 0.2) + 
   geom_line(mapping = aes(x = yield, y = yield), linetype = "solid", size=1.5) +
-  theme_bw() +
-  labs(x = "Yield (Actual)", y = "Yield (Fitted)", title= "Combined Model VS Actual", subtitle="Quadratic Temp, Year, County")
+  labs(x = "Yield (Actual)", y = "Yield (Fitted)", title= "Combined Model", subtitle="Quadratic Temp, Year, County") +
+  theme_gray()
 )
 
 ```
